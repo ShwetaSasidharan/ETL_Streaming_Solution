@@ -40,8 +40,8 @@ services:
       - "8080:8080"
       - "4040:4040"
     volumes:
-      - /home/tmtsmrsl/streaming_data_processing/spark_script:/spark_script
-      - /home/tmtsmrsl/streaming_data_processing/spark-defaults.conf:/opt/bitnami/spark/conf/spark-defaults.conf
+      - /home/streaming_data_processing/spark_script:/spark_script
+      - /home/streaming_data_processing/spark-defaults.conf:/opt/bitnami/spark/conf/spark-defaults.conf
     depends_on:
       - zookeeper
       - kafka
@@ -59,7 +59,7 @@ services:
     ports:
       - "8081:8081"
     volumes:
-      - /home/tmtsmrsl/streaming_data_processing/spark-defaults.conf:/opt/bitnami/spark/conf/spark-defaults.conf
+      - /home/streaming_data_processing/spark-defaults.conf:/opt/bitnami/spark/conf/spark-defaults.conf
     depends_on:
       - zookeeper
       - kafka
