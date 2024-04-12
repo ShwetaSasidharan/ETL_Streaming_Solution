@@ -1,7 +1,7 @@
 import random
 import sys
 import time
-from datetime import datetime,timedelta
+from datetime import datetime, timedelta
 from json import dumps
 import uuid  
 from cassandra.cluster import Cluster
@@ -35,15 +35,17 @@ def get_last_event_id():
 
 def produce_message():
     event_types = ['page_visit', 'click', 'purchase', 'signup']
-    user_id = random.randint(1, 10000)
+    user_id = random.randint(1, 50 )
     page_id = random.randint(1, 100)
     start_date = datetime.now() - timedelta(days=30)  # Start date for timestamp
     end_date = datetime.now()  # End date for timestamp (current time)
     random_date = start_date + (end_date - start_date) * random.random()  # Random date within the range
     timestamp = random_date.strftime("%Y-%m-%d %H:%M:%S")
     event_type = random.choice(event_types)
+    event_id = random.randint(3000, 10000)
     
     message = {
+        "event_id": event_id,
         "event_type": event_type,
         "timestamp": timestamp,
         "user_id": user_id,
