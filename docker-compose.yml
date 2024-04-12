@@ -90,6 +90,8 @@ services:
       - "3000:3000"
     depends_on:
       - mysql
+    volumes:
+      - grafana-storage:/var/lib/grafana
     networks:
       - custom_network
       
